@@ -1,0 +1,10 @@
+<h1> All your enrollments </h1>
+
+
+<ol>
+    <% @enrollments.each do |enrollment|%>
+    <li> <%=  link_to "Enrollment info", enrollment_path(enrollment) %> </li>
+    <% end %>
+
+</ol>
+<%= link_to "Create new enrollment", new_enrollment_path %>

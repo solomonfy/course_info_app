@@ -1,0 +1,16 @@
+<h1> Enrollment info </h1>
+
+<ul>
+<li>Course title: <%= @enrollment.course.title %> <br></li>
+<li>Student name: <%= @enrollment.student.first_name + " " + @enrollment.student.last_name%> <br></li>
+
+
+</ul>
+
+<% 10.times do %>
+    <br>
+    <% end %>
+
+<%= link_to 'Edit', edit_enrollment_path %><br>
+<%= link_to 'Destroy', enrollment_path, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<%= link_to 'All enrollments', enrollments_path %>

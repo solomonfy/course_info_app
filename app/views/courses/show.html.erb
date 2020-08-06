@@ -1,0 +1,16 @@
+<h1> Course info </h1>
+
+<ul>
+<li>Course title: <%= @course.title %> <br></li>
+<li>Course description: <%= @course.description %> <br></li>
+<li>Course credit hours: <%= @course.credit_hr %> <br></li>
+<li>Course start date: <%= @course.start_date %> <br></li>
+<li>Course duration (months): <%= @course.month_duration %> <br></li>
+
+</ul>
+
+<% 10.times do %>
+    <br>
+    <% end %>
+    
+<%= link_to 'All courses', courses_path %>

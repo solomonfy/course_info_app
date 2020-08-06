@@ -2,8 +2,8 @@
 
 <ol>
     <% @courses.each do |course|%>
-    <li> <%= link_to course.title, course_path(course) %> </li>
+    <li> <%=course.title %> <%=  link_to "course detail", course_path(course) %> </li>
     <% end %>
 
 </ol>
-
+<%= link_to "Create new course", new_course_path %>

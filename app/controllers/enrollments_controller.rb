@@ -9,23 +9,34 @@ class EnrollmentsController < ApplicationController
         @enrollment = Enrollment.find(params[:id])
     end
 
-    # def new
-        
-    # end
+    def new
+        @enrollment = Enrollment.new
+    end
 
-    # def create
-        
-    # end
+    def create
+        student = params["enrollment"]["student_id"]
+        course = params["enrollment"]["course_id"]
+        enrollment = Enrollment.create(student_id: student, course_id: course)
+        redirect_to enrollment_path(enrollment)
+    end
 
-    # def edit
-        
-    # end
+    def edit
+       @enrollment = Enrollment.find(params[:id])
+    end
 
-    # def update
-        
-    # end
+    def update
+        @enrollment = Enrollment.find(params[:id])
+        @enrollment.update(enrollment_params(:course_id))
+        redirect_to enrollment_path(@enrollment)
+    end
 
     # def destroy
         
     # end
+
+    private
+    def enrollment_params(*optional)
+        params.require(:enrollment).permit(*optional)
+    end
+
 end

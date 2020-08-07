@@ -1,0 +1,13 @@
+<h1> New enrollment </h1>
+<%=form_for @enrollment do |f|%>
+    <%= f.label :student_id %>
+    <%= f.select :student_id, Student.all.pluck(:first_name, :id), {prompt: 'select student'}, {class: "form-control"}%> <br><br>
+    <%= f.label :course_id %>
+    <%= f.select :course_id,Course.all.pluck(:title, :id),{prompt:'select course'},{class: "form-control"}%> <br><br>
+    <%= f.submit%>
+
+<%end%>
+
+<br><br><br><br><br><br><br><br>
+    
+<%= link_to 'Cancel', enrollments_path %>

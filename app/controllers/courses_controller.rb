@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
     end
 
     def create
-        new_course=Course.create(course_params)
+        new_course = Course.create(course_params(:title, :description, :credit_hr, :start_date, :month_duration))
         redirect_to Course.last
         #course_path(new_course)
     end
@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
 
     def update
         @course = Course.find(params[:id])
-        @course.update(course_params)
+        @course.update(course_params(:start_date, :month_duration))
         redirect_to course_path(@course)
     end
 
@@ -37,8 +37,8 @@ class CoursesController < ApplicationController
     end
 
     private
-    def course_params
-        params.require(:course).permit(:title, :description, :credit_hr, :start_date, :month_duration)
+    def course_params(*optional)
+        params.require(:course).permit(*optional)
     end
 
 

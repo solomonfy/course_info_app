@@ -1,11 +1,5 @@
 <h1> Edit Course </h1>
 <%=form_for @course do |f|%>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.label :credit_hr %>
-    <%= f.number_field :credit_hr, :in => 1..4.0, step: '0.5' %>
     <%= f.label :start_date%>
     <%= f.date_field :start_date, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %>
     <%= f.label :month_duration%>

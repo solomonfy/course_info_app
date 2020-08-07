@@ -1,0 +1,14 @@
+<h1> Edit 
+
+<%= @enrollment.student.first_name + " " + @enrollment.student.last_name + "'s"%> enrollment </h1><br>
+
+<%=form_for @enrollment do |f|%>
+    <%= f.label :course_id %>
+    <%= f.select :course_id,Course.all.pluck(:title, :id),{prompt:'select course'},{class: "form-control"}%> <br><br>
+    <%= f.submit%>
+
+<%end%>
+
+<br><br><br><br><br><br><br><br>
+    
+<%= link_to 'Cancel', enrollments_path %>
